@@ -34,9 +34,9 @@ const OurJourney = () => {
 
   return (
     <section 
-      id="journey-video"
+      id="journey"
       ref={containerRef}
-      className="relative h-screen w-full overflow-hidden flex items-center justify-center bg-black"
+      className="relative h-screen w-full overflow-hidden flex items-center justify-center bg-black scroll-mt-20"
     >
       {/* Cinematic Background Video Montage */}
       <div className="absolute inset-0 z-0 overflow-hidden">
@@ -107,12 +107,15 @@ const OurJourney = () => {
 
         {/* Decorative Scroll Hint */}
         <motion.div 
-          animate={{ y: [0, 10, 0] }}
+          animate={{ y: [0, 8, 0] }}
           transition={{ duration: 2, repeat: Infinity }}
-          className="mt-12 flex flex-col items-center gap-2"
+          onClick={() => document.getElementById('story')?.scrollIntoView({ behavior: 'smooth' })}
+          className="mt-12 flex flex-col items-center gap-2 cursor-pointer hover:opacity-100 opacity-80 transition-opacity"
+          role="button"
+          aria-label="Scroll to Our Story"
         >
           <div className="w-[1px] h-12 bg-gradient-to-b from-primary to-transparent" />
-          <span className="text-[10px] text-primary/50 uppercase tracking-[0.3em] font-bold">Scroll to Explore</span>
+          <span className="text-[10px] text-primary/70 uppercase tracking-[0.3em] font-bold group-hover:text-primary">Scroll to Explore</span>
         </motion.div>
       </motion.div>
     </section>

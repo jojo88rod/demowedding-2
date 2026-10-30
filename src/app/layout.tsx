@@ -7,6 +7,7 @@ import MobileNav from "@/components/layout/MobileNav";
 import MusicPlayer from "@/components/ui/MusicPlayer";
 import Branding from "@/components/ui/Branding";
 import Preloader from "@/components/ui/Preloader";
+import ScrollToTop from "@/components/ui/ScrollToTop";
 
 const outfit = Outfit({ subsets: ["latin"], variable: "--font-sans" });
 const cormorant = Cormorant_Garamond({ 
@@ -39,6 +40,7 @@ export default function RootLayout({
         <Navbar />
         <main>{children}</main>
         <MusicPlayer />
+        <ScrollToTop />
         <Branding />
         <MobileNav />
         <Footer />

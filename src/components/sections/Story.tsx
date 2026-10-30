@@ -33,7 +33,7 @@ const timelineEvents = [
 
 const Story = () => {
   return (
-    <section id="story" className="min-h-screen py-24 px-6 bg-background relative overflow-hidden flex items-center">
+    <section id="story" className="min-h-screen py-24 px-6 bg-background relative overflow-hidden flex items-center scroll-mt-20">
       {/* Parallax Floating Elements */}
       <motion.div
         animate={{ 

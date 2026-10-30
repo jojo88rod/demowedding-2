@@ -27,7 +27,7 @@ const venues = [
 
 const Venue = () => {
   return (
-    <section id="venue" className="min-h-screen py-24 px-6 bg-background flex items-center">
+    <section id="venue" className="min-h-screen py-24 px-6 bg-background flex items-center scroll-mt-20">
       <div className="max-w-7xl mx-auto">
         <div className="text-center mb-16">
           <h2 className="text-4xl md:text-6xl font-serif text-secondary mb-4">Location & Timing</h2>

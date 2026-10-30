@@ -211,10 +211,13 @@ const Hero = () => {
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
         transition={{ delay: 2.5, duration: 1 }}
-        className="absolute bottom-10 left-1/2 -translate-x-1/2 z-20 text-white/50"
+        onClick={() => document.getElementById('invitation')?.scrollIntoView({ behavior: 'smooth' })}
+        className="absolute bottom-10 left-1/2 -translate-x-1/2 z-20 text-white/50 hover:text-white cursor-pointer transition-colors p-2"
+        role="button"
+        aria-label="Scroll to Invitation"
       >
         <motion.div
-          animate={{ y: [0, 10, 0] }}
+          animate={{ y: [0, 8, 0] }}
           transition={{ duration: 2, repeat: Infinity }}
         >
           <ChevronDown size={32} strokeWidth={1} />

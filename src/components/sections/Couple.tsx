@@ -7,7 +7,7 @@ import { Instagram, Facebook, MessageCircle } from "lucide-react";
 
 const Couple = () => {
   return (
-    <section id="couple" className="min-h-screen py-24 px-6 bg-background overflow-hidden flex items-center">
+    <section id="couple" className="min-h-screen py-24 px-6 bg-background overflow-hidden flex items-center scroll-mt-20">
       <div className="max-w-7xl mx-auto">
         <div className="text-center mb-16">
           <h2 className="text-4xl md:text-6xl font-serif text-secondary mb-4">Bride & Groom</h2>

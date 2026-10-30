@@ -11,17 +11,17 @@ import CandleLighting from "@/components/sections/CandleLighting";
 
 export default function Home() {
   return (
-    <div className="flex flex-col min-h-screen h-screen overflow-y-auto snap-y snap-mandatory scroll-smooth">
-      <div className="snap-start"><Hero /></div>
-      <div className="snap-start"><Invitation /></div>
-      <div className="snap-start"><OurJourney /></div>
-      <div className="snap-start"><Story /></div>
-      <div className="snap-start"><Couple /></div>
-      <div className="snap-start"><Venue /></div>
-      <div className="snap-start"><CandleLighting /></div>
-      <div className="snap-start"><Gallery /></div>
-      <div className="snap-start"><RSVP /></div>
-      <div className="snap-start"><Blessings /></div>
+    <div className="flex flex-col min-h-screen">
+      <Hero />
+      <Invitation />
+      <OurJourney />
+      <Story />
+      <Couple />
+      <Venue />
+      <CandleLighting />
+      <Gallery />
+      <RSVP />
+      <Blessings />
     </div>
   );
 }

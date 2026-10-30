@@ -98,7 +98,7 @@ const Invitation = () => {
   };
 
   return (
-    <section id="invitation" className="min-h-screen py-24 px-6 bg-muted/30 relative overflow-hidden flex items-center justify-center">
+    <section id="invitation" className="min-h-screen py-24 px-6 bg-muted/30 relative overflow-hidden flex items-center justify-center scroll-mt-20">
       
       <div className="max-w-4xl w-full mx-auto relative z-10">
         

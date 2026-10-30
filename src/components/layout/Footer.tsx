@@ -3,7 +3,7 @@ import { Heart, Instagram, Phone } from "lucide-react";
 
 const Footer = () => {
   return (
-    <footer className="bg-secondary text-white py-16 px-6 relative overflow-hidden">
+    <footer className="bg-secondary text-white pt-16 pb-28 md:py-16 px-6 relative overflow-hidden">
       <div className="max-w-7xl mx-auto flex flex-col items-center text-center space-y-8 relative z-10">
         <div className="w-12 h-12 rounded-full border border-primary/50 flex items-center justify-center">
           <Heart className="text-primary fill-primary w-6 h-6" />

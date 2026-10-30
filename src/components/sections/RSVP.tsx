@@ -39,7 +39,7 @@ const RSVP = () => {
   };
 
   return (
-    <section id="rsvp" className="py-24 px-6 bg-secondary relative overflow-hidden">
+    <section id="rsvp" className="py-24 px-6 bg-secondary relative overflow-hidden scroll-mt-20">
       {/* Background Decor */}
       <div className="absolute inset-0 opacity-10 pointer-events-none">
         <div className="absolute top-0 right-0 w-96 h-96 bg-primary rounded-full blur-[150px]" />

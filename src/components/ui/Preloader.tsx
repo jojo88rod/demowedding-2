@@ -7,10 +7,20 @@ const Preloader = () => {
   const [isLoading, setIsLoading] = useState(true);
 
   useEffect(() => {
+    const handleDismiss = () => setIsLoading(false);
+
+    window.addEventListener("keydown", handleDismiss);
+    window.addEventListener("click", handleDismiss);
+
     const timer = setTimeout(() => {
       setIsLoading(false);
-    }, 3500);
-    return () => clearTimeout(timer);
+    }, 2400);
+
+    return () => {
+      window.removeEventListener("keydown", handleDismiss);
+      window.removeEventListener("click", handleDismiss);
+      clearTimeout(timer);
+    };
   }, []);
 
   return (
@@ -18,9 +28,10 @@ const Preloader = () => {
       {isLoading && (
         <motion.div
           initial={{ opacity: 1 }}
-          exit={{ opacity: 0, scale: 1.1, filter: "blur(20px)" }}
-          transition={{ duration: 1.2, ease: [0.22, 1, 0.36, 1] }}
-          className="fixed inset-0 z-[200] bg-secondary flex items-center justify-center overflow-hidden"
+          exit={{ opacity: 0, scale: 1.05, filter: "blur(15px)" }}
+          transition={{ duration: 0.9, ease: [0.22, 1, 0.36, 1] }}
+          onClick={() => setIsLoading(false)}
+          className="fixed inset-0 z-[200] bg-secondary flex items-center justify-center overflow-hidden cursor-pointer"
         >
           {/* Subtle Background Animation */}
           <motion.div 

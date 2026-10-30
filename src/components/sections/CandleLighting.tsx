@@ -22,7 +22,7 @@ const CandleLighting = () => {
   };
 
   return (
-    <section className="min-h-screen py-24 px-6 bg-[#0a1a14] relative overflow-hidden text-white flex items-center">
+    <section id="candle" className="min-h-screen py-24 px-6 bg-[#0a1a14] relative overflow-hidden text-white flex items-center scroll-mt-20">
       {/* Cinematic Background Glow */}
       <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-full h-full bg-[radial-gradient(circle,rgba(212,175,55,0.1)_0%,transparent_70%)] pointer-events-none" />
 

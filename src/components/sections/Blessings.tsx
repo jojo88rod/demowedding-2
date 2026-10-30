@@ -12,7 +12,7 @@ const wishes = [
 
 const Blessings = () => {
   return (
-    <section className="py-24 px-6 bg-muted/30 overflow-hidden">
+    <section id="blessings" className="py-24 px-6 bg-muted/30 overflow-hidden scroll-mt-20">
       <div className="max-w-7xl mx-auto">
         <div className="text-center mb-16">
           <h2 className="text-4xl md:text-6xl font-serif text-secondary mb-4">Blessings & Wishes</h2>
