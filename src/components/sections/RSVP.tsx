@@ -2,12 +2,14 @@
 
 import React, { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import { Send, CheckCircle2, MessageCircle } from "lucide-react";
+import { Send, CheckCircle2, MessageCircle, Ticket } from "lucide-react";
+import InvitePassModal from "@/components/ui/InvitePassModal";
 import confetti from "canvas-confetti";
 
 const RSVP = () => {
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [isSubmitted, setIsSubmitted] = useState(false);
+  const [isPassOpen, setIsPassOpen] = useState(false);
   const [formData, setFormData] = useState({
     name: "",
     email: "",
@@ -166,17 +168,34 @@ const RSVP = () => {
                 <p className="text-white/70 text-lg">
                   Your RSVP has been received. We can&apos;t wait to celebrate with you!
                 </p>
-                <button
-                  onClick={() => setIsSubmitted(false)}
-                  className="mt-8 text-primary uppercase tracking-widest text-sm font-bold border-b border-primary"
-                >
-                  Edit Response
-                </button>
+
+                <div className="flex flex-col sm:flex-row items-center justify-center gap-4 mt-8">
+                  <button
+                    onClick={() => setIsPassOpen(true)}
+                    className="inline-flex items-center space-x-2 bg-primary text-white px-6 py-3 rounded-full uppercase tracking-widest text-xs font-bold gold-glow hover:bg-primary/90 transition-all shadow-lg"
+                  >
+                    <Ticket size={16} />
+                    <span>Download WhatsApp Invite Pass</span>
+                  </button>
+                  <button
+                    onClick={() => setIsSubmitted(false)}
+                    className="text-white/60 hover:text-white uppercase tracking-widest text-xs font-bold transition-colors py-2"
+                  >
+                    Edit Response
+                  </button>
+                </div>
               </motion.div>
             )}
           </AnimatePresence>
         </motion.div>
       </div>
+
+      {/* Personalized WhatsApp Invite Pass Modal */}
+      <InvitePassModal 
+        isOpen={isPassOpen} 
+        onClose={() => setIsPassOpen(false)} 
+        defaultName={formData.name}
+      />
     </section>
   );
 };

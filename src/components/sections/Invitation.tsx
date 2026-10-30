@@ -2,14 +2,16 @@
 
 import React, { useState, useRef, useEffect, useMemo } from "react";
 import { motion, AnimatePresence, useMotionValue, useSpring, useTransform } from "framer-motion";
-import { Download, MailOpen, X } from "lucide-react";
+import { MailOpen, X, Ticket } from "lucide-react";
 import CinematicBackground from "@/components/ui/CinematicBackground";
+import InvitePassModal from "@/components/ui/InvitePassModal";
 import confetti from "canvas-confetti";
 import { cn } from "@/lib/utils";
 
 const Invitation = () => {
   const [phase, setPhase] = useState(0); // 0: closed, 1: flap opening, 2: morphing, 3: doors open
   const [timeLeft, setTimeLeft] = useState({ d: 0, h: 0, m: 0, s: 0 });
+  const [isPassModalOpen, setIsPassModalOpen] = useState(false);
 
   const invParticles = useMemo(() => {
     return Array.from({ length: 15 }, (_, i) => ({
@@ -110,13 +112,22 @@ const Invitation = () => {
             className="text-center mb-12"
           >
             <h2 className="text-secondary/60 uppercase tracking-[0.3em] text-sm mb-4">You are cordially invited</h2>
-            <button 
-              onClick={handleOpen}
-              className="bg-primary text-white px-8 py-4 rounded-full font-bold uppercase tracking-widest hover:bg-primary/90 transition-all flex items-center space-x-2 mx-auto gold-glow"
-            >
-              <MailOpen size={20} />
-              <span>Open Invitation</span>
-            </button>
+            <div className="flex flex-wrap items-center justify-center gap-4">
+              <button 
+                onClick={handleOpen}
+                className="bg-primary text-white px-8 py-4 rounded-full font-bold uppercase tracking-widest hover:bg-primary/90 transition-all flex items-center space-x-2 gold-glow"
+              >
+                <MailOpen size={20} />
+                <span>Open Invitation</span>
+              </button>
+              <button
+                onClick={() => setIsPassModalOpen(true)}
+                className="bg-white/95 text-secondary border border-primary/30 px-6 py-4 rounded-full font-bold uppercase tracking-widest hover:bg-white hover:border-primary transition-all flex items-center space-x-2 shadow-lg text-xs gold-glow"
+              >
+                <Ticket size={18} className="text-primary" />
+                <span>WhatsApp Invite Pass</span>
+              </button>
+            </div>
           </motion.div>
         )}
 
@@ -312,8 +323,12 @@ const Invitation = () => {
                     </div>
                     
                     <div className="flex flex-row justify-center gap-4 pt-2">
-                       <button className="flex items-center space-x-2 bg-[#043927] text-white px-6 py-2 md:py-3 rounded-full hover:bg-[#065c40] transition-all text-xs uppercase tracking-widest shadow-lg">
-                          <Download size={14} /><span>Save</span>
+                       <button 
+                         onClick={() => setIsPassModalOpen(true)}
+                         className="flex items-center space-x-2 bg-[#043927] text-white px-6 py-2.5 md:py-3 rounded-full hover:bg-[#065c40] transition-all text-xs uppercase tracking-widest shadow-lg gold-glow font-bold"
+                       >
+                          <Ticket size={15} className="text-[#d4af37]" />
+                          <span>Get WhatsApp Pass</span>
                        </button>
                     </div>
                   </motion.div>
@@ -322,6 +337,12 @@ const Invitation = () => {
           </motion.div>
         )}
       </AnimatePresence>
+
+      {/* Personalized WhatsApp Invite Pass Modal */}
+      <InvitePassModal 
+        isOpen={isPassModalOpen} 
+        onClose={() => setIsPassModalOpen(false)} 
+      />
     </section>
   );
 };
