@@ -134,6 +134,26 @@
   100% { background-position: 200% 0; }
 }
 
+@utility holographic-foil {
+  background: linear-gradient(
+    135deg,
+    #bf953f 0%,
+    #fcf6ba 25%,
+    #b38728 50%,
+    #fbf5b7 75%,
+    #aa771c 100%
+  );
+  background-size: 200% 200%;
+  animation: holoGleam 6s ease infinite;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+@keyframes holoGleam {
+  0%, 100% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+}
+
 .perspective-2000 {
   perspective: 2000px;
 }
