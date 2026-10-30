@@ -4,12 +4,12 @@ import React, { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 
 const CINEMATIC_ASSETS = [
-  { type: "video", url: "https://assets.mixkit.co/videos/preview/mixkit-wedding-couple-walking-in-a-forest-4318-large.mp4" },
-  { type: "image", url: "/images/portrait.png" },
-  { type: "video", url: "https://assets.mixkit.co/videos/preview/mixkit-newly-married-couple-standing-on-a-beach-4317-large.mp4" },
-  { type: "image", url: "/images/rings.png" },
-  { type: "video", url: "https://assets.mixkit.co/videos/preview/mixkit-aerial-view-of-a-couple-standing-on-a-cliff-4316-large.mp4" },
-  { type: "image", url: "/images/church.png" },
+  { url: "/images/portrait.png", panX: [0, -15], panY: [0, -10], scale: [1, 1.12] },
+  { url: "/images/rings.png", panX: [10, -10], panY: [0, -5], scale: [1.12, 1.02] },
+  { url: "/images/church.png", panX: [0, 0], panY: [15, -15], scale: [1.03, 1.15] },
+  { url: "/images/engagement.png", panX: [-15, 10], panY: [0, -8], scale: [1, 1.12] },
+  { url: "/images/hero.png", panX: [0, -15], panY: [-5, 8], scale: [1.14, 1.03] },
+  { url: "/images/reception.png", panX: [10, -10], panY: [8, -8], scale: [1, 1.12] },
 ];
 
 interface CinematicBackgroundProps {
@@ -45,28 +45,16 @@ const CinematicBackground: React.FC<CinematicBackgroundProps> = ({
           transition={{ duration: 1.5, ease: "easeOut" }}
           className="absolute inset-0 w-full h-full"
         >
-          {activeAsset.type === "video" ? (
-            <video
-              src={activeAsset.url}
-              autoPlay
-              muted
-              loop
-              playsInline
-              className="w-full h-full object-cover transform-gpu"
-              preload="auto"
-            />
-          ) : (
-            <motion.div
-              animate={{ 
-                scale: [1, 1.1],
-                x: [0, -10],
-                y: [0, -5]
-              }}
-              transition={{ duration: 10, ease: "linear" }}
-              className="w-full h-full bg-cover bg-center transform-gpu"
-              style={{ backgroundImage: `url(${activeAsset.url})` }}
-            />
-          )}
+          <motion.div
+            animate={{ 
+              scale: activeAsset.scale,
+              x: activeAsset.panX,
+              y: activeAsset.panY
+            }}
+            transition={{ duration: 7, ease: "linear" }}
+            className="w-full h-full bg-cover bg-center transform-gpu"
+            style={{ backgroundImage: `url(${activeAsset.url})` }}
+          />
         </motion.div>
       </AnimatePresence>
 
