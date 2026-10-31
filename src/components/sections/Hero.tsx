@@ -157,10 +157,10 @@ const Hero = () => {
 
         <motion.div
           style={{ transform: "translateZ(80px)" }}
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
+          initial={{ opacity: 0, y: 15 }}
+          animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 1, delay: 1.2 }}
-          className="flex flex-wrap justify-center gap-6 md:gap-12 mb-12"
+          className="flex flex-wrap justify-center gap-3 sm:gap-4 md:gap-8 mb-12"
         >
           {[
             { label: "Days", value: timeLeft.days },
@@ -168,11 +168,14 @@ const Hero = () => {
             { label: "Mins", value: timeLeft.minutes },
             { label: "Secs", value: timeLeft.seconds },
           ].map((item, idx) => (
-            <div key={idx} className="flex flex-col items-center">
-              <span className="text-4xl md:text-6xl font-serif text-primary mb-1 drop-shadow-lg">
+            <div
+              key={idx}
+              className="flex flex-col items-center bg-black/40 backdrop-blur-xl border border-primary/30 rounded-2xl px-4 py-3 sm:px-6 sm:py-4 min-w-[70px] sm:min-w-[90px] shadow-[0_10px_30px_rgba(0,0,0,0.4)] group hover:border-primary/60 transition-colors"
+            >
+              <span className="text-3xl sm:text-4xl md:text-5xl font-serif text-primary mb-1 drop-shadow-md font-bold leading-tight">
                 {String(item.value).padStart(2, "0")}
               </span>
-              <span className="text-[10px] md:text-xs uppercase tracking-[0.3em] text-white/80 font-bold">
+              <span className="text-[9px] sm:text-[10px] md:text-xs uppercase tracking-[0.25em] text-white/75 font-semibold">
                 {item.label}
               </span>
             </div>
